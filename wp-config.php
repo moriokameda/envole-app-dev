@@ -93,7 +93,7 @@ define( 'NONCE_SALT',       getenv('WORDPRESS_NONCE_SALT') );
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix = getenv_docker('WORDPRESS_TABLE_PREFIX', 'wp_');
+$table_prefix = getenv('WORDPRESS_TABLE_PREFIX');
 
 /**
  * For developers: WordPress debugging mode.
