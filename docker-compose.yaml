@@ -7,13 +7,13 @@ services:
     volumes:
     - db_data:/var/lib/mysql
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: somewordpress
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
-#    env_file:
-#      - .env_sample
+#    environment:
+#      MYSQL_ROOT_PASSWORD: somewordpress
+#      MYSQL_DATABASE: wordpress
+#      MYSQL_USER: wordpress
+#      MYSQL_PASSWORD: wordpress
+    env_file:
+      - .env
     ports:
     - '5306:3306'
 
@@ -25,13 +25,15 @@ services:
     ports:
     - '8001:80'
     restart: always
-    environment:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
-      WORDPRESS_DB_NAME: wordpress
-#    env_file:
-#      - .env_sample
+#    environment:
+#      WORDPRESS_DB_HOST: db:3306
+#      WORDPRESS_DB_USER: wordpress
+#      WORDPRESS_DB_PASSWORD: wordpress
+#      WORDPRESS_DB_NAME: wordpress
+#      WORDPRESS_AUTH_KEY: 2055009efe2a3ed8822c2f9a16ba7cbe5f7ca903
+#      WORDPRESS_SECURE_AUTH_KEY: eb0cf37a3817a7dc81ba4d0cc766b829806f3baf
+    env_file:
+      - .env
     volumes:
     - "$PWD:/var/www/html"
     - "$PWD/.docker/backup:/tmp/backup"

@@ -41,13 +41,13 @@ if (!function_exists('getenv_docker')) {
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', getenv('WORDPRESS_DB_NAME'));
+define( 'DB_NAME', getenv_docker('WORDPRESS_DB_NAME','wordpress'));
 
 /** Database username */
-define( 'DB_USER', getenv('WORDPRESS_DB_USER') );
+define( 'DB_USER', getenv_docker('WORDPRESS_DB_USER', 'example username'));
 
 /** Database password */
-define( 'DB_PASSWORD', getenv('WORDPRESS_DB_PASSWORD') );
+define( 'DB_PASSWORD', getenv_docker('WORDPRESS_DB_PASSWORD', 'example password'));
 
 /**
  * Docker image fallback values above are sourced from the official WordPress installation wizard:
@@ -56,13 +56,13 @@ define( 'DB_PASSWORD', getenv('WORDPRESS_DB_PASSWORD') );
  */
 
 /** Database hostname */
-define( 'DB_HOST', getenv('WORDPRESS_DB_HOST') );
+define( 'DB_HOST', getenv_docker('WORDPRESS_DB_HOST', 'mysql') );
 
 /** Database charset to use in creating database tables. */
-define( 'DB_CHARSET', getenv('WORDPRESS_DB_CHARSET') );
+define( 'DB_CHARSET', getenv_docker('WORDPRESS_DB_CHARSET', 'utf8') );
 
 /** The database collate type. Don't change this if in doubt. */
-define( 'DB_COLLATE', getenv('WORDPRESS_DB_COLLATE') );
+define( 'DB_COLLATE', getenv_docker('WORDPRESS_DB_COLLATE', '') );
 
 /**#@+
  * Authentication unique keys and salts.
@@ -75,14 +75,14 @@ define( 'DB_COLLATE', getenv('WORDPRESS_DB_COLLATE') );
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         getenv('WORDPRESS_AUTH_KEY') );
-define( 'SECURE_AUTH_KEY',  getenv('WORDPRESS_SECURE_AUTH_KEY') );
-define( 'LOGGED_IN_KEY',    getenv('WORDPRESS_LOGGED_IN_KEY') );
-define( 'NONCE_KEY',        getenv('WORDPRESS_NONCE_KEY') );
-define( 'AUTH_SALT',        getenv('WORDPRESS_AUTH_SALT') );
-define( 'SECURE_AUTH_SALT', getenv('WORDPRESS_SECURE_AUTH_SALT') );
-define( 'LOGGED_IN_SALT',   getenv('WORDPRESS_LOGGED_IN_SALT') );
-define( 'NONCE_SALT',       getenv('WORDPRESS_NONCE_SALT') );
+define( 'AUTH_KEY',         getenv_docker('WORDPRESS_AUTH_KEY',         '2055009efe2a3ed8822c2f9a16ba7cbe5f7ca903') );
+define( 'SECURE_AUTH_KEY',  getenv_docker('WORDPRESS_SECURE_AUTH_KEY',  'eb0cf37a3817a7dc81ba4d0cc766b829806f3baf') );
+define( 'LOGGED_IN_KEY',    getenv_docker('WORDPRESS_LOGGED_IN_KEY',    'd7c50b27b679af0a2c08f3821490f5b50fa2adcc') );
+define( 'NONCE_KEY',        getenv_docker('WORDPRESS_NONCE_KEY',        'f2fcaf072e43956a9fe2135f456b8626a3c036d1') );
+define( 'AUTH_SALT',        getenv_docker('WORDPRESS_AUTH_SALT',        '976aed0311b8b4aac4061d3331ab8e17b7cb9027') );
+define( 'SECURE_AUTH_SALT', getenv_docker('WORDPRESS_SECURE_AUTH_SALT', '8e8900f8e4d8deb5c209f92a1c8726a1841c1dff') );
+define( 'LOGGED_IN_SALT',   getenv_docker('WORDPRESS_LOGGED_IN_SALT',   'a1e69b977ec9e1ae2cd97b56cf5bc27dcc658509') );
+define( 'NONCE_SALT',       getenv_docker('WORDPRESS_NONCE_SALT',       '0eea2a3da909cfd7db7776d5e10e8437f0bef440') );
 // (See also https://wordpress.stackexchange.com/a/152905/199287)
 
 /**#@-*/
@@ -107,7 +107,7 @@ $table_prefix = getenv_docker('WORDPRESS_TABLE_PREFIX', 'wp_');
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', !!getenv('WORDPRESS_DEBUG') );
+define( 'WP_DEBUG', !!getenv_docker('WORDPRESS_DEBUG', '') );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
