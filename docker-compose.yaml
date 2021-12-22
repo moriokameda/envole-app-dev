@@ -13,7 +13,7 @@ services:
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
 #    env_file:
-#      - .env
+#      - .env_sample
     ports:
     - '5306:3306'
 
@@ -31,7 +31,7 @@ services:
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
 #    env_file:
-#      - .env
+#      - .env_sample
     volumes:
     - "$PWD:/var/www/html"
     - "$PWD/.docker/backup:/tmp/backup"
